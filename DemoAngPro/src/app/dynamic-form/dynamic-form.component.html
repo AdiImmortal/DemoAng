@@ -1,0 +1,28 @@
+<h2>{{ name }}</h2>
+<div *ngFor="let value of values; let i = index">
+  <input type="text" [(ngModel)]="value.value" #name="ngModel" name="value{{i}}">
+  <button (click)="removevalue(i)">Remove</button>
+</div>
+<button (click)="addvalue()">ADD</button>
+
+<h2>Plain Result</h2>
+<div *ngFor="let value of values;">
+  {{ value.value }}
+</div>
+
+<br>
+<hr>
+<br>
+<div>
+  <input type="submit" value="Export Result" (click)="exportData()">
+</div>
+
+<br>
+
+<hr>
+<div *ngIf="show">
+<h2>Json DataResult</h2>
+<div *ngFor="let value of values;">
+ {{ value.value |json }}
+</div>
+</div>
